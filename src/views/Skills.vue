@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-      <h2 style="color:#f1f5f9">技能管理</h2>
+    <div class="page-header">
+      <h2 class="page-title">技能管理</h2>
       <el-button type="primary" @click="openDialog()">新增技能</el-button>
     </div>
     <el-table :data="list" stripe style="width:100%">
@@ -9,9 +9,9 @@
       <el-table-column prop="name" label="技能名称" />
       <el-table-column label="熟练度" width="250">
         <template #default="{ row }">
-          <div style="display:flex;align-items:center;gap:8px">
+          <div class="skill-progress">
             <el-progress :percentage="row.level" :stroke-width="8" style="flex:1" />
-            <span style="color:#94a3b8;font-size:0.85rem;width:40px">{{ row.level }}%</span>
+            <span class="skill-percent">{{ row.level }}%</span>
           </div>
         </template>
       </el-table-column>
@@ -78,3 +78,32 @@ async function del(id) {
   load()
 }
 </script>
+
+<style scoped>
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: color 0.3s;
+  margin: 0;
+}
+
+.skill-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-percent {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  width: 40px;
+}
+</style>

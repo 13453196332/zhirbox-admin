@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2 style="color:#f1f5f9;margin-bottom:24px">仪表盘</h2>
+    <h2 class="page-title">仪表盘</h2>
     <el-row :gutter="20">
       <el-col :span="6" v-for="item in stats" :key="item.label">
-        <el-card shadow="never" style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,212,255,0.12);color:#f1f5f9;margin-bottom:20px">
-          <p style="color:#94a3b8;font-size:0.85rem;margin-bottom:4px">{{ item.label }}</p>
-          <p style="font-size:2rem;font-weight:700;color:#00d4ff">{{ item.count }}</p>
+        <el-card shadow="never" class="stat-card">
+          <p class="stat-label">{{ item.label }}</p>
+          <p class="stat-count">{{ item.count }}</p>
         </el-card>
       </el-col>
     </el-row>
@@ -37,3 +37,36 @@ onMounted(async () => {
   } catch (e) {}
 })
 </script>
+
+<style scoped>
+.page-title {
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.stat-count {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+  transition: color 0.3s;
+}
+</style>

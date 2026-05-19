@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-      <h2 style="color:#f1f5f9">项目经历管理</h2>
+    <div class="page-header">
+      <h2 class="page-title">项目经历管理</h2>
       <el-button type="primary" @click="openDialog()">新增项目</el-button>
     </div>
     <el-table :data="list" stripe style="width:100%">
@@ -74,3 +74,20 @@ async function del(id) {
   load()
 }
 </script>
+
+<style scoped>
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: color 0.3s;
+  margin: 0;
+}
+</style>

@@ -42,15 +42,43 @@ async function handleLogin() {
 
 <style scoped>
 .login-page {
-  height: 100vh; display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, #0a0f1e, #1a1a2e);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-login-start), var(--bg-login-end));
+  transition: background 0.3s;
 }
+
 .login-card {
-  background: rgba(255,255,255,0.05); backdrop-filter: blur(20px);
-  border: 1px solid rgba(0,212,255,0.15); border-radius: 20px;
-  padding: 40px; width: 380px; text-align: center;
+  background: var(--bg-card-translucent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px;
+  width: 380px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
-.login-card h1 { color: #00d4ff; font-size: 1.8rem; margin-bottom: 4px; }
-.login-card .sub { color: #94a3b8; margin-bottom: 32px; font-size: 0.9rem; }
-.error { color: #ef4444; margin-top: 12px; font-size: 0.85rem; }
+
+.login-card h1 {
+  color: var(--accent-cyan);
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.login-card .sub {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #ef4444;
+  margin-top: 12px;
+  font-size: 0.85rem;
+}
 </style>

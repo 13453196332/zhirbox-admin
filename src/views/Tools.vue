@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-      <h2 style="color:#f1f5f9">工具卡片管理</h2>
+    <div class="page-header">
+      <h2 class="page-title">工具卡片管理</h2>
       <el-button type="primary" @click="openDialog()">新增工具</el-button>
     </div>
     <el-table :data="list" stripe style="width:100%" @row-dblclick="openDialog">
@@ -15,7 +15,7 @@
       <el-table-column label="操作" width="120">
         <template #default="{ row }">
           <el-button size="small" @click="openDialog(row)">编辑</el-button>
-          <el-popconfirm title="确定删除？" @confirm="del(row.id)"><el-button size="small" type="danger" slot="reference">删除</el-button></el-popconfirm>
+          <el-popconfirm title="确定删除？" @confirm="del(row.id)"><el-button size="small" type="danger">删除</el-button></el-popconfirm>
         </template>
       </el-table-column>
     </el-table>
@@ -66,3 +66,20 @@ async function del(id) {
   load()
 }
 </script>
+
+<style scoped>
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: color 0.3s;
+  margin: 0;
+}
+</style>
