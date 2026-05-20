@@ -13,6 +13,7 @@ const routes = [
       { path: 'work', name: 'Work', component: () => import('../views/Work.vue') },
       { path: 'skills', name: 'Skills', component: () => import('../views/Skills.vue') },
       { path: 'config', name: 'Config', component: () => import('../views/Config.vue') },
+      { path: 'tech-overview', name: 'TechOverview', component: () => import('../views/TechOverview.vue') },
     ]
   },
 ]

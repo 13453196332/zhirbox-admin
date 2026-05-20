@@ -17,6 +17,7 @@
         <el-menu-item index="/work"><el-icon><Briefcase /></el-icon>工作经历</el-menu-item>
         <el-menu-item index="/skills"><el-icon><TrendCharts /></el-icon>技能管理</el-menu-item>
         <el-menu-item index="/config"><el-icon><Setting /></el-icon>站点配置</el-menu-item>
+        <el-menu-item index="/tech-overview"><el-icon><Monitor /></el-icon>技术介绍</el-menu-item>
       </el-menu>
     </el-aside>
 
@@ -52,7 +53,7 @@
 
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
-import { Odometer, Tools, Folder, Briefcase, TrendCharts, Setting, Moon, Sunny } from '@element-plus/icons-vue'
+import { Odometer, Tools, Folder, Briefcase, TrendCharts, Setting, Monitor, Moon, Sunny } from '@element-plus/icons-vue'
 import { useTheme } from '../composables/useTheme.js'
 
 const route = useRoute()

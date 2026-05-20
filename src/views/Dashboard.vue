@@ -21,18 +21,20 @@ const stats = ref([
   { label: '项目经历', count: 0 },
   { label: '工作经历', count: 0 },
   { label: '技能', count: 0 },
+  { label: '技术介绍', count: 0 },
 ])
 
 onMounted(async () => {
   try {
-    const [tools, projects, work, skills] = await Promise.all([
-      api.get('/tools'), api.get('/projects'), api.get('/work'), api.get('/skills')
+    const [tools, projects, work, skills, tech] = await Promise.all([
+      api.get('/tools'), api.get('/projects'), api.get('/work'), api.get('/skills'), api.get('/tech-overview')
     ])
     stats.value = [
       { label: '工具卡片', count: tools.length },
       { label: '项目经历', count: projects.length },
       { label: '工作经历', count: work.length },
       { label: '技能', count: skills.length },
+      { label: '技术介绍', count: tech.length },
     ]
   } catch (e) {}
 })
