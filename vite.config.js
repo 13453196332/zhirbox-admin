@@ -6,6 +6,14 @@ export default defineConfig({
   base: '/admin/',
   build: {
     outDir: 'dist',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-vue': ['vue', 'vue-router'],
+          'vendor-element': ['element-plus', '@element-plus/icons-vue'],
+        },
+      },
+    },
   },
   server: {
     port: 5173,
