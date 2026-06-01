@@ -16,10 +16,16 @@
         </template>
       </el-table-column>
       <el-table-column prop="category" label="分类" width="100" />
-      <el-table-column label="操作" width="120">
+      <el-table-column label="操作" width="160">
         <template #default="{ row }">
-          <el-button size="small" @click="openDialog(row)">编辑</el-button>
-          <el-popconfirm title="确定删除？" @confirm="del(row.id)"><el-button size="small" type="danger">删除</el-button></el-popconfirm>
+          <div class="action-group">
+            <el-button size="small" @click="openDialog(row)">编辑</el-button>
+            <el-popconfirm title="确定删除？" @confirm="del(row.id)">
+              <template #reference>
+                <el-button size="small" type="danger">删除</el-button>
+              </template>
+            </el-popconfirm>
+          </div>
         </template>
       </el-table-column>
     </el-table>
@@ -105,5 +111,11 @@ async function del(id) {
   color: var(--text-muted);
   font-size: 0.85rem;
   width: 40px;
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 </style>
